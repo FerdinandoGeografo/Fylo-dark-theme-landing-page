@@ -20,9 +20,11 @@ function isValidEmail(email) {
 const allLinks = document.querySelectorAll("a:link");
 allLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
-    e.preventDefault();
     const href = link.getAttribute("href");
 
+    if (!href.startsWith("#")) return;
+
+    e.preventDefault();
     if (href === "#")
       window.scrollTo({
         top: 0,
